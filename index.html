@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gatitos Random 🐱</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #ff9f1c;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2ec4b6;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #219c90;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card p {
+            padding: 10px;
+            margin: 0;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 30px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🐾 Gatitos Random 🐾</h1>
+    <p>Una página de prueba con gatitos adorables</p>
+</header>
+
+<main>
+    <div class="intro">
+        <p>Presiona el botón para cargar gatitos aleatorios 🐱</p>
+        <button onclick="cargarGatitos()">Cargar gatitos</button>
+    </div>
+
+    <div class="gallery" id="gallery">
+        <!-- Aquí se insertan los gatitos -->
+    </div>
+</main>
+
+<footer>
+    Página de prueba • Gatitos © 2026
+</footer>
+
+<script>
+    function cargarGatitos() {
+        const gallery = document.getElementById("gallery");
+        gallery.innerHTML = "";
+
+        for (let i = 0; i < 6; i++) {
+            const card = document.createElement("div");
+            card.className = "card";
+
+            const img = document.createElement("img");
+            img.src = "https://cataas.com/cat?random=" + Math.random();
+
+            const text = document.createElement("p");
+            text.textContent = "Gatito #" + (i + 1);
+
+            card.appendChild(img);
+            card.appendChild(text);
+            gallery.appendChild(card);
+        }
+    }
+</script>
+
+</body>
+</html>
